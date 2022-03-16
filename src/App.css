@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root{
+  --clr: #222327;
+}
+body{
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--clr);
+}
+.navigation{
+  margin-top:25%;
+  width: 400px;
+  height: 70px;
+  background: #ffff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.navigation ul{
+  display: flex;
+  width: 350px;
+}
+
+.navigation ul li{
+  position: relative;
+  list-style: none;
+  width: 70px;
+  height: 70px;
+  z-index: 1;
+}
+
+.navigation ul li .NavLink{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+}
+
+.navigation ul li .NavLink .icon{
+  position: relative;
+  display: block;
+  line-height: 75px;
+  font-size: 1.5em;
+  text-align: center;
+  transition: 0.5s;
+  color: var(--clr);
+  border-radius: 75%;
+}
+
+.navigation ul li:hover .NavLink .icon{
+  transform: translateY(-10px);
+  background-color: black;
+  border-radius: 75%;
+}
+
+.navigation ul li .NavLink .text{
+  position: absolute;
+  color: var(--clr);
+  color: white;
+  font-weight: 400;
+  padding: 5px;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+  transition: 0.5s;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.navigation ul li:hover .NavLink .text{
+  opacity: 1;
+  transform: translateY(5px);
+}
+
+.navigation ul li:nth-child(1):hover ~ .NavLink{
+  transform: translateX(70px * 0);
+}
+.navigation ul li:nth-child(2):hover ~ .NavLink{
+  transform: translateX(70px * 1);
+}
