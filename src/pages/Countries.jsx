@@ -15,7 +15,7 @@ function Countries() {
     //*3Line15,call the API and take the information.
     const getAllLegues = async () =>{
         try{
-            const getResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/countries?api_token=vzIbCXwEDJcjlzJWVJP0qdaHhs9quZrZyA8RczV9vdggbIn4HSF9lvo8ZQS2`)
+            const getResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/leagues?api_token=vzIbCXwEDJcjlzJWVJP0qdaHhs9quZrZyA8RczV9vdggbIn4HSF9lvo8ZQS2`)
             // console.log("hola",getResponse.data.data)
             setAllCountries(getResponse.data.data)
             
@@ -41,7 +41,7 @@ function Countries() {
             return(
                 <div className='container-Countries' key={eachCountry.name}>
                     <Link className='link' to={`/countries/${eachCountry.id}/players`}>
-                    <img width="150px" src={eachCountry.image_path} alt="Country"/>
+                    <img width="150px" src={eachCountry.logo_path} alt="Country"/>
                     </Link>
                 </div>
             )
