@@ -1,8 +1,10 @@
+import { useContext } from 'react'
 import {NavLink} from 'react-router-dom'
 
 function Navbar() {
+    const{darkMode} = useContext
   return (
-    <div className='navigation'>
+      <div className='navigation'>   
         <ul>
             <li className='list active'>
                 <NavLink href="#" className="NavLink" to="/">
@@ -13,15 +15,15 @@ function Navbar() {
                 </NavLink>
             </li>
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/">
+                <NavLink href="#" className="NavLink" to="/countries">
                 <span className='icon'>
                 <ion-icon name="football"></ion-icon>
                 </span>
-                <span className='text'>Leagues</span>
+                <span className='text'>Country</span>
                 </NavLink>
             </li>
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/">
+                <NavLink href="#" className="NavLink" to="/signup">
                 <span className='icon'>
                 <ion-icon name="log-in"></ion-icon>
                 </span>
@@ -29,7 +31,7 @@ function Navbar() {
                 </NavLink>
             </li>
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/">
+                <NavLink href="#" className="NavLink" to="/login">
                 <span className='icon'>
                 <ion-icon name="log-in"></ion-icon>
                 </span>
@@ -37,7 +39,7 @@ function Navbar() {
                 </NavLink>
             </li>
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/">
+                <NavLink href="#" className="NavLink" to="/profile">
                 <span className='icon'>
                 <ion-icon name="person-circle"></ion-icon>
                 </span>
@@ -52,7 +54,6 @@ function Navbar() {
                 <span className='text'>Logout</span>
                 </NavLink>
             </li>
-            <div className='indicator'></div>
         </ul>
     </div>
   )

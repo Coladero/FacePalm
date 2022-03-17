@@ -1,24 +1,24 @@
-* {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+
 :root{
   --clr: #222327;
 }
-body{
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
+.app{
+  margin: 0;
+  padding: 0;
+  text-align: center;
   background: var(--clr);
+  background: black;
+
+}
+h1{
+  text-align: center;
 }
 .navigation{
-  margin-top:25%;
+  margin-top: 10%;
+  margin-left: 2%;
   width: 400px;
   height: 70px;
-  background: #ffff;
+  background: black;
   position: relative;
   display: flex;
   justify-content: center;
@@ -61,14 +61,14 @@ body{
 
 .navigation ul li:hover .NavLink .icon{
   transform: translateY(-10px);
-  background-color: black;
+  background-color: white;
   border-radius: 75%;
 }
 
 .navigation ul li .NavLink .text{
   position: absolute;
   color: var(--clr);
-  color: white;
+  color: black;
   font-weight: 400;
   padding: 5px;
   font-size: 0.75em;
@@ -88,4 +88,46 @@ body{
 }
 .navigation ul li:nth-child(2):hover ~ .NavLink{
   transform: translateX(70px * 1);
+}
+
+.text{
+  text-align: center;
+  font-size:80px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.container-Countries{
+  display:inline-flex;
+  margin: 1%;
+
+}
+
+.link{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.container2{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 10px solid rgba(224, 224, 224, 0.952);
+  border-radius: 25%;
+  background-color: rgba(231, 216, 216, 0.527);
+  margin: 1%;
+  
+}
+.container-player{
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+.link{
+  display: flex;
+  font-size: 40px;
+}
+
+.btn-players{
+  background-color: white;
+  border: none;
 }
