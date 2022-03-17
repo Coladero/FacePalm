@@ -1,8 +1,8 @@
-import { useContext } from 'react'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
-    const{darkMode} = useContext
+
+
   return (
       <div className='navigation'>   
         <ul>
@@ -15,7 +15,7 @@ function Navbar() {
                 </NavLink>
             </li>
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/countries">
+            <NavLink href="#" className="NavLink" to="/countries">
                 <span className='icon'>
                 <ion-icon name="football"></ion-icon>
                 </span>
@@ -48,7 +48,7 @@ function Navbar() {
             </li>
             <li className='list'>
                 <NavLink href="#" className="NavLink" to="/">
-                <span className='icon'>
+                <span  className='icon'>
                 <ion-icon name="log-out"></ion-icon>
                 </span>
                 <span className='text'>Logout</span>
