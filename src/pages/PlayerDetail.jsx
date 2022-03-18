@@ -16,7 +16,7 @@ function PlayerDetail() {
     const getPlayerDetail = async () =>{ 
         try{
         const getResponse = await getPlayerDetails(id)
-        // console.log(getResponse.data.data)
+        console.log(getResponse.data.data)
             setPlayerDetail(getResponse.data.data)
         }catch(err){
             if(err.getResponse){
@@ -36,7 +36,7 @@ function PlayerDetail() {
     }
   return (
     <div className='Container'>
-    <form onSubmit={handleAdd}>
+    <form to={`/countries/${playerDetail.player_id}/players/details`} onSubmit={handleAdd}>
     <div className='player'>
         <img src={playerDetail.image_path} alt={playerDetail.common_name} />
         <h1>{playerDetail.common_name}</h1>
@@ -52,7 +52,7 @@ function PlayerDetail() {
         </div>
 
         
-            <button>Add to your Agenda</button>
+            <button >Add to your Agenda</button>
         </form>
         
     </div>
