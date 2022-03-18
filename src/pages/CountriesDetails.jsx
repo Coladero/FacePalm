@@ -1,12 +1,13 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import { getAllPlayers } from '../services/api.services'
 
 function CountriesDetails() {
     //*1.Line7, create the state for Players.
     const [detailLeague, setDetailLeague] = useState(null)
     const {id} = useParams()
     // console.log(id)
+    
     const navigate = useNavigate()
     //*2.Line11, create the useEffect.
     useEffect(()=>{
@@ -15,7 +16,7 @@ function CountriesDetails() {
     //*3Line16,call the API and take the information.
     const getDetailLeague = async ()=>{
         try{
-            const getResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/countries/${id}/players?api_token=vzIbCXwEDJcjlzJWVJP0qdaHhs9quZrZyA8RczV9vdggbIn4HSF9lvo8ZQS2`)
+            const getResponse = await getAllPlayers(id)
             // console.log("Adios",getResponse.data.data)
             setDetailLeague(getResponse.data.data)
         }catch(err){

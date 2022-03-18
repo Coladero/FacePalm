@@ -1,11 +1,10 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import {getAllCountries} from '../services/api.services'
 
 function Countries() {
     //*1.Line7, create the state for allCountries.
     const [allLegues, setAllCountries] = useState(null)
-   
     const navigate = useNavigate()
 
     //*2.Line11, create the useEffect.
@@ -15,12 +14,13 @@ function Countries() {
     //*3Line15,call the API and take the information.
     const getAllLegues = async () =>{
         try{
-            const getResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/countries?api_token=vzIbCXwEDJcjlzJWVJP0qdaHhs9quZrZyA8RczV9vdggbIn4HSF9lvo8ZQS2`)
-            // console.log("hola",getResponse.data.data)
-            setAllCountries(getResponse.data.data)
+           const getResponse = await getAllCountries("/countries")
+        //    console.log(getResponse.data.data)
+           setAllCountries(getResponse.data.data)
             
-        }catch(err){
-            if(err.getResponse){
+        }
+        catch(err){
+            if(err){
                 navigate("/login")
             }else{
                 navigate("/error")

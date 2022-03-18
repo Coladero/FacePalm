@@ -1,7 +1,15 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
-function Navbar() {
+function Navbar(props) {
+    // console.log(props)
+    const {isLogin, setIsLogin} = props
+    const navigate = useNavigate()
 
+    const handleGetOut = () =>{
+        setIsLogin(false)
+        localStorage.removeItem("authToken")
+        navigate("/")
+    }
 
   return (
       <div className='navigation'>   
@@ -14,6 +22,7 @@ function Navbar() {
                 <span className='text'>Home</span>
                 </NavLink>
             </li>
+            {isLogin &&
             <li className='list'>
             <NavLink href="#" className="NavLink" to="/countries">
                 <span className='icon'>
@@ -22,6 +31,8 @@ function Navbar() {
                 <span className='text'>Country</span>
                 </NavLink>
             </li>
+            }
+            {!isLogin &&
             <li className='list'>
                 <NavLink href="#" className="NavLink" to="/signup">
                 <span className='icon'>
@@ -30,6 +41,8 @@ function Navbar() {
                 <span className='text'>Signup</span>
                 </NavLink>
             </li>
+            }
+            {!isLogin &&
             <li className='list'>
                 <NavLink href="#" className="NavLink" to="/login">
                 <span className='icon'>
@@ -38,6 +51,8 @@ function Navbar() {
                 <span className='text'>Login</span>
                 </NavLink>
             </li>
+            }
+            {isLogin &&
             <li className='list'>
                 <NavLink href="#" className="NavLink" to="/profile">
                 <span className='icon'>
@@ -46,14 +61,17 @@ function Navbar() {
                 <span className='text'>Profile</span>
                 </NavLink>
             </li>
+            }
+            {isLogin &&
             <li className='list'>
-                <NavLink href="#" className="NavLink" to="/">
+                <NavLink onClick={handleGetOut} href="#" className="NavLink" to="/">
                 <span  className='icon'>
                 <ion-icon name="log-out"></ion-icon>
                 </span>
                 <span className='text'>Logout</span>
                 </NavLink>
             </li>
+            }
         </ul>
     </div>
   )

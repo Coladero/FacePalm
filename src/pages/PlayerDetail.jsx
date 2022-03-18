@@ -1,6 +1,6 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import {getPlayerDetails} from '../services/api.services'
 
 
 function PlayerDetail() {
@@ -15,7 +15,7 @@ function PlayerDetail() {
 
     const getPlayerDetail = async () =>{ 
         try{
-        const getResponse = await axios.get(`https://soccer.sportmonks.com/api/v2.0/players/${id}?api_token=vzIbCXwEDJcjlzJWVJP0qdaHhs9quZrZyA8RczV9vdggbIn4HSF9lvo8ZQS2`)
+        const getResponse = await getPlayerDetails(id)
         // console.log(getResponse.data.data)
             setPlayerDetail(getResponse.data.data)
         }catch(err){
@@ -26,12 +26,17 @@ function PlayerDetail() {
             }
         }
     }
+    const handleAdd = (e) =>{
+        e.preventDefault()
+        navigate("/profile")
+    }
     
     if(!playerDetail){
         return <div>...Loanding</div>
     }
   return (
     <div className='Container'>
+    <form onSubmit={handleAdd}>
     <div className='player'>
         <img src={playerDetail.image_path} alt={playerDetail.common_name} />
         <h1>{playerDetail.common_name}</h1>
@@ -46,7 +51,7 @@ function PlayerDetail() {
             <p><strong>Weight:</strong> {playerDetail.weight}</p>
         </div>
 
-        <form>
+        
             <button>Add to your Agenda</button>
         </form>
         

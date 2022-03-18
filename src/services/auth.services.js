@@ -5,11 +5,11 @@ const service = axios.create({
   baseURL: `${process.env.REACT_APP_SERVER_URL}/auth`
 })
 
-// esta configuracion nos permite enviar el Token en cada request que se haga
+//* config let send the token on every request.
 service.interceptors.request.use((config) => {
-  // aqui buscamos el token en localstorage
+//*  search the token in localstorage.
   const storedToken = localStorage.getItem("authToken")
-  // si el toke existe lo agregamos a los headers del request
+//* if the token exist, add to the header of the request.
   config.headers = storedToken && { Authorization: `Bearer ${storedToken}` }
 
   return config;
@@ -23,9 +23,13 @@ const loginService = (user) => {
   return service.post("/login", user)
 }
 
+const checkUserService = () => {
+  return service.get("/verify")
+}
 
 
 export{
     signupService,
     loginService,
+    checkUserService
 }
