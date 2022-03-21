@@ -15,9 +15,14 @@ const getAllPlayers = (id) => {
 const getPlayerDetails = (id) =>{
   return service.post(`/countries/${id}/players/details`)
 }
+const getPlayerandAdd = (newPlayer, id) =>{
+  return service.post(`/countries/add/${id}`,newPlayer)
+}
+
 
 export{
     getAllCountries,
     getAllPlayers,
-    getPlayerDetails
+    getPlayerDetails,
+    getPlayerandAdd
 }

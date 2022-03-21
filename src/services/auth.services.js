@@ -27,7 +27,6 @@ const checkUserService = () => {
   return service.get("/verify")
 }
 
-
 export{
     signupService,
     loginService,

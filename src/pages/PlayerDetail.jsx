@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import {getPlayerDetails} from '../services/api.services'
+import AddPlayer from '../components/AddPlayer'
 
 
 function PlayerDetail() {
@@ -16,7 +17,7 @@ function PlayerDetail() {
     const getPlayerDetail = async () =>{ 
         try{
         const getResponse = await getPlayerDetails(id)
-        console.log(getResponse.data.data)
+        // console.log(getResponse.data.data)
             setPlayerDetail(getResponse.data.data)
         }catch(err){
             if(err.getResponse){
@@ -28,7 +29,7 @@ function PlayerDetail() {
     }
     const handleAdd = (e) =>{
         e.preventDefault()
-        navigate("/profile")
+        navigate(`/countries/add/${playerDetail.player_id}`)
     }
     
     if(!playerDetail){
@@ -36,7 +37,6 @@ function PlayerDetail() {
     }
   return (
     <div className='Container'>
-    <form to={`/countries/${playerDetail.player_id}/players/details`} onSubmit={handleAdd}>
     <div className='player'>
         <img src={playerDetail.image_path} alt={playerDetail.common_name} />
         <h1>{playerDetail.common_name}</h1>
@@ -50,11 +50,8 @@ function PlayerDetail() {
             <p><strong>Height:</strong> {playerDetail.height}</p>
             <p><strong>Weight:</strong> {playerDetail.weight}</p>
         </div>
+        <AddPlayer playerDetail={playerDetail}/>
 
-        
-            <button >Add to your Agenda</button>
-        </form>
-        
     </div>
   )
 }

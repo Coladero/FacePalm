@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import SearchCountries from '../components/SearchCountries'
 import {getAllCountries} from '../services/api.services'
 
 function Countries() {
     //*1.Line7, create the state for allCountries.
-    const [allLegues, setAllCountries] = useState(null)
+    const [allLeagues, setAllCountries] = useState(null)
     const navigate = useNavigate()
 
     //*2.Line11, create the useEffect.
@@ -29,14 +30,22 @@ function Countries() {
     }
 
     //*4Line31, make the loanding to make sure get the info and render.
-    if(!allLegues){
+    if(!allLeagues){
         return <div>...Loading</div>
+    }
+
+    const searchCountries = (searchQuery) =>{
+        const filterPlayer = allLeagues.filter((eachPlayer)=>{
+            return eachPlayer.name.startsWith(searchQuery)
+        })
+        setAllCountries(filterPlayer)
     }
   return (
     <div>
         <p className='text'>Countries</p>
+        <SearchCountries searchCountries={searchCountries}/>
         {/* //*render eachCountry to the user */}
-        {allLegues.map((eachCountry)=>{
+        {allLeagues.map((eachCountry)=>{
             {/* console.log(eachCountry.id) */}
             return(
                 <div className='container-Countries' key={eachCountry.name}>

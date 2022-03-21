@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { loginService } from '../../services/auth.services';
 
 
@@ -11,6 +11,7 @@ function Login(props) {
   const [password, setPassword] =useState("")
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
+  const {id} = useParams()
   // console.log(props)
 
   //*2.Line15, create the handle for the form and check user/token.
@@ -21,6 +22,7 @@ function Login(props) {
     try{
       //*3.Line20, connect to the server.
       const response = await loginService(user)
+      
       const {authToken} = response.data
       // console.log("hola", authToken)
       //*3.Line23, check the token & save in localStorage
@@ -28,7 +30,7 @@ function Login(props) {
       props.setIsLogin(true)
       // console.log(props.setIsLogIn)
       //*4.Line28, if evething is ok, redirect to the profile.
-      navigate("/profile")  
+      navigate(`/profile`)  
     }catch(err){
       if (err?.response?.status === 400) {
         console.log(err.response)

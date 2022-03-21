@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate, useParams } from 'react-router-dom'
+import SearchPlayer from '../components/SearchPlayer'
 import { getAllPlayers } from '../services/api.services'
 
-function CountriesDetails() {
+function CountriesDetails(props) {
     //*1.Line7, create the state for Players.
     const [detailLeague, setDetailLeague] = useState(null)
     const {id} = useParams()
@@ -32,10 +33,18 @@ function CountriesDetails() {
     if(!detailLeague){
         return <div>...Loading</div>
     }
+    //*5Line37, now we can make the player's search and show the result.
+    const searchPlayers = (searchQuery) =>{
+        const filterPlayer = detailLeague.filter((eachPlayer)=>{
+            return eachPlayer.fullname.startsWith(searchQuery)
+        })
+        setDetailLeague(filterPlayer)
+    }
   return (
     <div>
         <p className='text'>Players</p>
         <div>
+        <SearchPlayer searchPlayers={searchPlayers}/>
         {/* //*Line39, render eachPlayer to the user */}
         {detailLeague.map((eachPlayer)=>{
             {/* console.log(eachPlayer) */}

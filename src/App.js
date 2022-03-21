@@ -15,6 +15,7 @@ import { ThemeContext } from "./context/theme.context";
               //!services//
 import { checkUserService } from "./services/auth.services";
 import Countries from "./pages/Countries";
+import AddPlayer from "./components/AddPlayer";
 
 function App() {
   const { darkMode, setDarkMode, switchTheme } = useContext(ThemeContext);
@@ -46,6 +47,7 @@ function App() {
         <Route path="/countries" element={<Countries />} />
         <Route path="/countries/:id/players" element={<CountriesDetails />} />
         <Route path="/countries/:id/players/details" element={<PlayerDetail />}/>
+        <Route path="/countries/add/:id" element={<AddPlayer/>}/>
               //!User's Routes//
         <Route path="/login" element={<Login setIsLogin={setIsLogin}/>} />
         <Route path="/signup" element={<Signup />} />
