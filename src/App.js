@@ -1,7 +1,7 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import "./App.css";
-              //!Navbar & Routes//
+            //!Navbar & Routes//
 import Navbar from "./components/Navbar";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
@@ -9,10 +9,13 @@ import CountriesDetails from "./pages/CountriesDetails";
 import PlayerDetail from "./pages/PlayerDetail";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+            //!Chat Routes//
 import Profile from "./pages/auth/Profile";
-              //!Context//
+import UserList from "./pages/chat/UserList";
+import Messenger from "./pages/chat/Messenger"
+            //!Context//
 import { ThemeContext } from "./context/theme.context";
-              //!services//
+            //!services//
 import { checkUserService } from "./services/auth.services";
 import Countries from "./pages/Countries";
 import AddPlayer from "./components/AddPlayer";
@@ -54,6 +57,9 @@ function App() {
         <Route path="/login" element={<Login setIsLogin={setIsLogin}/>} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+              //!Chat Routes//
+        <Route path="/users" element={<UserList />}/>
+        <Route path="/messenger/:chatId" element={<Messenger/>}/>
               //!Error Routes//
         <Route path="/error" element={<Error />} />
       </Routes>

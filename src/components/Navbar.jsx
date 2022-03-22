@@ -7,7 +7,7 @@ function Navbar(props) {
   const { isLogin, setIsLogin } = props;
   //!Line9, useNavigate
   const navigate = useNavigate();
-  //!Line11, handle check if the user is auth.
+  //!Line11, handle logOut the user.
   const handleGetOut = () => {
     setIsLogin(false);
     localStorage.removeItem("authToken");
@@ -67,6 +67,16 @@ function Navbar(props) {
         )}
         {isLogin && (
           <li className="list">
+            <NavLink href="#" className="NavLink" to="/users">
+              <span className="icon">
+                <ion-icon name="chatbubbles"></ion-icon>
+              </span>
+              <span className="text">UserChat</span>
+            </NavLink>
+          </li>
+        )}
+        {isLogin && (
+          <li className="list">
             <NavLink onClick={handleGetOut} href="#" className="NavLink" to="/">
               <span className="icon">
                 <ion-icon name="log-out"></ion-icon>
@@ -81,3 +91,5 @@ function Navbar(props) {
 }
 
 export default Navbar;
+
+

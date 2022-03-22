@@ -5,7 +5,7 @@ import { getPlayersAllService } from "../../services/profile.service";
 function Profile() {
   //*Line7, useState for have the control.
   const [agendaPlayers, setAgendaPlayers] = useState(null);
-
+  const navigate = useNavigate()
   //*Line10, useEffect
   useEffect(() => {
     getAllAgenda();
@@ -17,7 +17,9 @@ function Profile() {
       const getResponse = await getPlayersAllService();
       // console.log(getResponse.data)
       setAgendaPlayers(getResponse.data);
-    } catch {}
+    } catch {
+      navigate("/error")
+    }
   };
   //*Line23, wait until the DB send the response.
   if (!agendaPlayers) {
@@ -28,9 +30,7 @@ function Profile() {
     <div>
       <h1>Profile</h1>
       {agendaPlayers.map((eachPlayer) => {
-        {
-          console.log(eachPlayer)
-        }
+          {/* console.log(eachPlayer) */}
         return (
           <div key={eachPlayer._id}>
             <form>
