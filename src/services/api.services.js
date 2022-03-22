@@ -13,33 +13,17 @@ service.interceptors.request.use((config) => {
   return config;
 });
 
-const getAllCountries = () => {
+const getAllCountriesService = () => {
   return service.post("/countries");
 };
 
-const getAllPlayers = (id) => {
+const getAllPlayersService = (id) => {
   return service.post(`/countries/${id}/players`);
 };
 
-const getPlayerDetails = (id) => {
+const getPlayerDetailsService = (id) => {
   return service.post(`/countries/${id}/players/details`);
 };
-const getPlayerandAdd = (newPlayer, id) => {
-  return service.post(`/countries/add/${id}`, newPlayer);
-};
-const updatePlayerService = (id, updatePlayer) => {
-  return service.patch(`/player/${id}/edit`, updatePlayer);
-};
 
-const deletePlayerService = (id) => {
-  return service.delete(`/player/${id}/delete`);
-};
 
-export {
-  getAllCountries,
-  getAllPlayers,
-  getPlayerDetails,
-  getPlayerandAdd,
-  updatePlayerService,
-  deletePlayerService,
-};
+export {getAllCountriesService, getAllPlayersService,getPlayerDetailsService};

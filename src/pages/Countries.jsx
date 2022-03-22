@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SearchCountries from "../components/SearchCountries";
-import { getAllCountries } from "../services/api.services";
+import { getAllCountriesService } from "../services/api.services";
 
 function Countries() {
   //*1.Line8, create the state for allCountries.
@@ -15,7 +15,7 @@ function Countries() {
   //*3Line16,call the API and take the information.
   const getAllLegues = async () => {
     try {
-      const getResponse = await getAllCountries("/countries");
+      const getResponse = await getAllCountriesService("/countries");
       //    console.log(getResponse.data.data)
       setAllCountries(getResponse.data.data);
     } catch (err) {

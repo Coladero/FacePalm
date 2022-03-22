@@ -1,7 +1,6 @@
 import axios from "axios";
-
 const service = axios.create({
-  baseURL: `${process.env.REACT_APP_SERVER_URL}/auth`,
+  baseURL: `${process.env.REACT_APP_SERVER_URL}/profile`,
 });
 
 //* config let send the token on every request.
@@ -14,17 +13,8 @@ service.interceptors.request.use((config) => {
   return config;
 });
 
-const signupService = (user) => {
-  return service.post("/signup", user);
-};
+const getPlayersAllService = () => {
+    return service.get("/profile");
+  };
 
-const loginService = (user) => {
-  return service.post("/login", user);
-};
-
-const checkUserService = () => {
-  return service.get("/verify");
-};
-
-
-export { signupService, loginService, checkUserService };
+  export{getPlayersAllService}

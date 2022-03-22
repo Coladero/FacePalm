@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  deletePlayerService,
-  updatePlayerService,
-} from "../services/api.services";
+import { deletePlayerService, updatePlayerService } from "../services/players.service";
+
 
 function EditPlayer() {
   //*Line10, useState

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import SearchPlayer from "../components/SearchPlayer";
-import { getAllPlayers } from "../services/api.services";
+import { getAllPlayersService } from "../services/api.services";
 
 function CountriesDetails(props) {
   //*1.Line7, create the state for Players.
@@ -17,7 +17,7 @@ function CountriesDetails(props) {
   //*3Line16,call the API and take the information.
   const getDetailLeague = async () => {
     try {
-      const getResponse = await getAllPlayers(id);
+      const getResponse = await getAllPlayersService(id);
       // console.log("Adios",getResponse.data.data)
       setDetailLeague(getResponse.data.data);
     } catch (err) {

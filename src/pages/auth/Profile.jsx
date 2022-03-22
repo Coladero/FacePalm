@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { getPlayersAll } from "../../services/auth.services";
+import { getPlayersAllService } from "../../services/profile.service";
 
 function Profile() {
   //*Line7, useState for have the control.
@@ -14,7 +14,7 @@ function Profile() {
   //*Line15, get all the players by user.
   const getAllAgenda = async () => {
     try {
-      const getResponse = await getPlayersAll();
+      const getResponse = await getPlayersAllService();
       // console.log(getResponse.data)
       setAgendaPlayers(getResponse.data);
     } catch {}

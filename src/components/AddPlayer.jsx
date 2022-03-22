@@ -1,7 +1,7 @@
 //!import//
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getPlayerandAdd } from "../services/api.services";
+import { getPlayerandAddService } from "../services/players.service";
 
 function AddPlayer(props) {
   // console.log(props.playerDetail)
@@ -45,7 +45,7 @@ function AddPlayer(props) {
         ballControl,
       };
       console.log(newPlayer);
-      const response = await getPlayerandAdd(newPlayer, id);
+      const response = await getPlayerandAddService(newPlayer, id);
       // console.log("hola",response)
       setShooting("");
       setDribbling("");

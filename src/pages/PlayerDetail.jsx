@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import {getPlayerDetails} from '../services/api.services'
+import { getPlayerDetailsService } from '../services/api.services'
 import AddPlayer from '../components/AddPlayer'
 
 
@@ -16,7 +16,7 @@ function PlayerDetail() {
 
     const getPlayerDetail = async () =>{ 
         try{
-        const getResponse = await getPlayerDetails(id)
+        const getResponse = await getPlayerDetailsService(id)
         // console.log(getResponse.data.data)
             setPlayerDetail(getResponse.data.data)
         }catch(err){
