@@ -9,7 +9,6 @@ function SearchCountries(props) {
     setSearch(e.target.value);
     props.searchCountries(e.target.value);
   };
-
   return (
     <div>
       <label htmlFor="search"></label>

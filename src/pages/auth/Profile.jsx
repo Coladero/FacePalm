@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getPlayersAllService } from "../../services/profile.service";
 
 function Profile() {
@@ -21,23 +21,26 @@ function Profile() {
       navigate("/error")
     }
   };
-  //*Line23, wait until the DB send the response.
+
+  //*Line26, wait until the DB send the response.
   if (!agendaPlayers) {
     return <div>...Loading</div>;
   }
 
   return (
     <div>
-      <h1>Profile</h1>
+      <h1>Agenda</h1>
       {agendaPlayers.map((eachPlayer) => {
-          {/* console.log(eachPlayer) */}
+          console.log(eachPlayer)
         return (
           <div key={eachPlayer._id}>
             <form>
+
               <img width="50px" src={eachPlayer.image_path} alt="pic" />
               <h3>{eachPlayer.display_name}</h3>
               <label htmlFor="shooting">Shooting: </label>
               <span id="temp">{eachPlayer.shooting}</span>
+
               <input
                 min="0"
                 max="100"
