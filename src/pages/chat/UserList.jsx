@@ -1,14 +1,16 @@
+import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {getAllUsersService, newChatService} from "../../services/chat.services"
+
 function UserList() {
-    //!Line6, useState
+    //!Line8, useState
     const [users, setUsers] = useState(null);
 
-    //!Line9, useNavigate
+    //!Line11, useNavigate
     const navigate = useNavigate()
 
-    //!Line12, useEffect
+    //!Line14, useEffect
     useEffect(()=>{
         getAllUsers()
     },[])
@@ -35,14 +37,19 @@ function UserList() {
         return <div>...Loading</div>
     }
   return (
-    <div>
-    <h1>Users List</h1>
+      <div>
+      <div>
+      <h1>Users List</h1>    
+      </div>
     {users.map((eachUser)=>{
         return(
-        <div key={eachUser._id}>
+        <div className='user-list' key={eachUser._id}>
+        <form className='user-card'>
             <p><strong>Name: </strong>{eachUser.name}</p>
-            <button onClick={() => handleClick(eachUser)}>Start Chat</button>
+            <Button variant='text' onClick={() => handleClick(eachUser)}>Start Chat</Button>
+        </form>
         </div>
+        
         )
     })}
     </div>

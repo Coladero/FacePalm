@@ -1,5 +1,6 @@
+import { Button, Slider } from "@mui/material";
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { getPlayersAllService } from "../../services/profile.service";
 
 function Profile() {
@@ -29,56 +30,70 @@ function Profile() {
 
   return (
     <div>
-      <h1>Agenda</h1>
+    <div className="btn-agenda">
+    <h1>Profile</h1>
+    </div>
+    <div className="container-perfil">
+      <p>Name: Profile</p>
+      <p>Surname: Surprofile</p>
+    </div>
+    <h1>Agenda</h1>
       {agendaPlayers.map((eachPlayer) => {
-          console.log(eachPlayer)
+          {/* console.log(eachPlayer) */}
         return (
-          <div key={eachPlayer._id}>
-            <form>
-
+          <div className="table" key={eachPlayer._id}>
+            <form  className="container">
               <img width="50px" src={eachPlayer.image_path} alt="pic" />
               <h3>{eachPlayer.display_name}</h3>
               <label htmlFor="shooting">Shooting: </label>
               <span id="temp">{eachPlayer.shooting}</span>
-
-              <input
-                min="0"
-                max="100"
-                type="range"
-                name="shooting"
-                value={eachPlayer.shooting}
-                readOnly
+              <Slider
+                  valueLabelDisplay="auto"
+                  step={1}
+                  min={0}
+                  max={100}
+                  disabled
+                  name="shooting"
+                  value={eachPlayer.shooting}
               />
-
               <label htmlFor="dribbling">Dribbling: </label>
               <span id="temp">{eachPlayer.dribbling}</span>
-              <input
-                type="range"
+              <Slider
+               valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
+                disabled
                 name="dribbling"
                 value={eachPlayer.dribbling}
                 readOnly
               />
-
               <label htmlFor="running">Running: </label>
               <span id="temp">{eachPlayer.running}</span>
-              <input
-                type="range"
+              <Slider
+                valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
+                disabled
                 name="running"
                 value={eachPlayer.running}
                 readOnly
               />
-
               <label htmlFor="ballControl">Ball Control: </label>
               <span id="temp">{eachPlayer.ballControl}</span>
-              <input
-                type="range"
+              <Slider
+                valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
+                disabled
                 name="ballControl"
                 value={eachPlayer.ballControl}
                 readOnly
               />
-
-              <NavLink to={`/countries/${eachPlayer._id}/edit`}>
-                <button>Edit</button>
+              <NavLink className="user-list" to={`/countries/${eachPlayer._id}/edit`}>
+                <Button variant='text'>Edit</Button>
               </NavLink>
             </form>
           </div>

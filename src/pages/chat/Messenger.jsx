@@ -13,10 +13,10 @@ function Messenger() {
 
   useEffect(()=>{
     getAllMessages()
-    ConnectToSocket()
+    connectToSocket()
   },[])
 
-  const ConnectToSocket = () =>{
+  const connectToSocket = () =>{
     const storedToken = localStorage.getItem("authToken")
     socket = socketIo.connect("http://localhost:5005", {
       extraHeaders: {authorization: `bearer ${storedToken}`}
@@ -59,14 +59,14 @@ function Messenger() {
         {/* console.log(eachMessage.sender.name) */}
         return(
           <div key={eachMessage._id + index}>
-          <p>{eachMessage.sender.name}: {eachMessage.text}</p>
+            <p>{eachMessage.sender.name}: {eachMessage.text}</p>
           </div>
         )
       })}
     
       <div>
-      <input type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
-      <button onClick={sendMessage}>Send</button>
+        <input type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
 

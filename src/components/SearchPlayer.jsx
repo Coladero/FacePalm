@@ -1,3 +1,4 @@
+import { TextField } from "@mui/material";
 import { useState } from "react";
 
 function SearchPlayer(props) {
@@ -11,9 +12,8 @@ function SearchPlayer(props) {
   };
 
   return (
-    <div>
-      <label htmlFor="search"></label>
-      <input type="text" name="search" value={search} onChange={handleChange} />
+    <div className="container-search">
+      <TextField error id="outlined-disabled" label="Search here..." variant="standard" type="text" name="search" value={search} onChange={handleChange} />
     </div>
   );
 }

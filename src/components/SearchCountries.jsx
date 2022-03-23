@@ -1,5 +1,5 @@
+import { TextField } from "@mui/material";
 import { useState } from "react";
-
 function SearchCountries(props) {
   //!Line5, useState
   const [search, setSearch] = useState();
@@ -10,9 +10,8 @@ function SearchCountries(props) {
     props.searchCountries(e.target.value);
   };
   return (
-    <div>
-      <label htmlFor="search"></label>
-      <input type="text" name="search" value={search} onChange={handleChange} />
+    <div className="container-search">
+      <TextField error id="outlined-disabled" label="Search here..." variant="standard" type="text" name="search" value={search} onChange={handleChange} />
     </div>
   );
 }

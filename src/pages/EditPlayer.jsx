@@ -1,15 +1,16 @@
+import { Button, Slider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePlayerService, updatePlayerService } from "../services/players.service";
 
 
 function EditPlayer() {
+  
   //*Line10, useState
   const [shooting, setShooting] = useState("");
   const [dribbling, setDribbling] = useState("");
   const [running, setRunning] = useState("");
   const [ballControl, setBallControl] = useState("");
-
   //*Line15, useParams
   const { id } = useParams();
 
@@ -31,7 +32,7 @@ function EditPlayer() {
   const getAndUpdatePlayer = async () => {
     try {
       const response = await updatePlayerService(id);
-      console.log("hola", response.data);
+      // console.log("hola", response.data)
       setShooting(response.data.shooting);
       setDribbling(response.data.dribbling);
       setRunning(response.data.running);
@@ -45,13 +46,12 @@ function EditPlayer() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await updatePlayerService(id, {
+      await updatePlayerService(id, {
         shooting,
         dribbling,
         running,
         ballControl,
       });
-      console.log(response.data);
       navigate("/profile");
     } catch {
       navigate("/error");
@@ -68,47 +68,57 @@ function EditPlayer() {
   };
   return (
     <div>
-      EditPlayer
-      <form onSubmit={handleSubmit}>
+      <h1>EditPlayer</h1>
+      <form className="form-edit" onSubmit={handleSubmit}>
+      <div className="container-edit">
+
         <label htmlFor="shooting">Shooting: {shooting} </label>
-        <input
-          min="0"
-          max="100"
-          type="range"
+        <Slider
+          valueLabelDisplay="auto"
+          step={1}
+          min={0}
+          max={100}
           name="shooting"
           value={shooting}
           onChange={handleShooting}
         />
         <label htmlFor="dribbling">Dribbling: {dribbling} </label>
-        <input
-          min="0"
-          max="100"
-          type="range"
+        <Slider
+          valueLabelDisplay="auto"
+          step={1}
+          min={0}
+          max={100}
           name="dribbling"
           value={dribbling}
           onChange={handleDribbling}
         />
         <label htmlFor="running">Running: {running} </label>
-        <input
-          min="0"
-          max="100"
-          type="range"
+        <Slider
+          valueLabelDisplay="auto"
+          step={1}
+          min={0}
+          max={100}
           name="running"
           value={running}
           onChange={handleRunning}
         />
         <label htmlFor="ballControl">Ball control: {ballControl} </label>
-        <input
-          min="0"
-          max="100"
-          type="range"
+        <Slider
+          valueLabelDisplay="auto"
+          step={1}
+          min={0}
+          max={100}
           name="ballControl"
           value={ballControl}
           onChange={handleBallControl}
         />
-
-        <button onClick={handleDelete}>Delete</button>
-        <button>Change</button>
+        <div className="user-list">
+        <Button variant='text' onClick={handleDelete}>Delete</Button>
+        </div>
+        <div className="user-list">
+        <Button variant='text'>Change</Button>
+        </div>
+        </div>
       </form>
     </div>
   );

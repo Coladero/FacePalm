@@ -7,9 +7,8 @@
   padding: 0;
   text-align: center;
   background: var(--clr);
-  background: black;
-
 }
+
 h1{
   text-align: center;
 }
@@ -132,4 +131,77 @@ h1{
   border: none;
 }
 
+.table{
+  display: inline-flex;
+  flex-direction: column;
+}
 
+.container{
+  display:inline-block;
+  flex-direction: column;
+  margin: 10%;
+}
+
+.container-edit{
+  display:inline-block;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.form-edit{
+  display:flex;
+  justify-content: center;
+}
+
+.container-perfil{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 7%;
+  margin-left: 5%;
+  border-radius: 40%;
+  background-color: rgba(252, 34, 34, 0.623);
+}
+
+.btn-agenda{
+  display:flex;
+  justify-content: space-around;
+  margin-right: 10%;
+  padding: 10px 30px 10px 30px;
+  font-size: 30px;
+  background: none;
+  border: none;
+}
+
+.user-card{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.user-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-decoration: none;
+  background-color:rgba(105, 43, 33, 0.295);
+  margin: 1%;
+}
+
+
+.user-list button{
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  color: tomato;
+}
+
+.container-search {
+  display: flex;
+  justify-content: center;
+}
