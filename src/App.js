@@ -20,7 +20,6 @@ import Messenger from "./pages/chat/Messenger"
 import { ThemeContext } from "./context/theme.context";
             //!services//
 import { checkUserService } from "./services/auth.services";
-import Agenda from "./components/Agenda";
 
 function App() {
   const { darkMode, setDarkMode, switchTheme } = useContext(ThemeContext);

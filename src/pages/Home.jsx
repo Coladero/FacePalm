@@ -1,9 +1,11 @@
 import React from 'react'
+import "../css/App.css"
+
 
 function Home() {
   return (
-    <div>
-      <h1>Welcome to FacePalm</h1>
+    <div className='logo'>
+      <img width="1000px" src="/logo_large.png" alt="pic" />
     </div>
   )
 }
