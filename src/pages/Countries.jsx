@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Country from "../components/Country";
 import SearchCountries from "../components/SearchCountries";
 import { getAllCountriesService } from "../services/api.services";
 
@@ -34,7 +35,7 @@ function Countries() {
 
   const searchCountries = (searchQuery) => {
     const filterPlayer = allLeagues.filter((eachPlayer) => {
-      return eachPlayer.name.startsWith(searchQuery);
+      return eachPlayer.name.toLowerCase().startsWith(searchQuery);
     });
     setAllCountries(filterPlayer);
   };
@@ -43,15 +44,10 @@ function Countries() {
       <p className="text">Countries</p>
       <SearchCountries searchCountries={searchCountries} />
       {/* //*render eachCountry to the user */}
-      {allLeagues.map((eachCountry) => {
-        {
-          /* console.log(eachCountry.id) */
-        }
+      {allLeagues.map((eachCountry, index) => {
         return (
-          <div className="container-Countries" key={eachCountry.name}>
-            <Link className="link" to={`/countries/${eachCountry.id}/players`}>
-              <img width="150px" src={eachCountry.image_path} alt="Country" />
-            </Link>
+          <div className="container-Countries" key={eachCountry.name + index}>
+          <Country  eachCountryProps={eachCountry}/>
           </div>
         );
       })}

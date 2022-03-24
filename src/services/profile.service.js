@@ -13,9 +13,13 @@ service.interceptors.request.use((config) => {
   return config;
 });
 
+const getUserService = () =>{
+  return service.get("/profile")
+}
+
 const getPlayersAllService = () => {
-    return service.get("/profile");
+    return service.get(`/agenda`);
   };
 
-  export{getPlayersAllService}
+  export{getPlayersAllService, getUserService}
 

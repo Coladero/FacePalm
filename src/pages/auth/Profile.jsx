@@ -1,15 +1,17 @@
-import { Button, Slider } from "@mui/material";
 import { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import { getPlayersAllService } from "../../services/profile.service";
+import { useNavigate } from "react-router-dom";
+import Agenda from "../../components/Agenda";
+import { getPlayersAllService, getUserService } from "../../services/profile.service";
 
 function Profile() {
   //*Line7, useState for have the control.
   const [agendaPlayers, setAgendaPlayers] = useState(null);
+  const [users, setUser] = useState({})
   const navigate = useNavigate()
   //*Line10, useEffect
   useEffect(() => {
     getAllAgenda();
+    getUser()
   }, []);
 
   //*Line15, get all the players by user.
@@ -23,77 +25,38 @@ function Profile() {
     }
   };
 
+  const getUser = async () =>{
+    try{
+      const getResponse = await getUserService()
+      setUser(getResponse.data)
+    }catch{
+
+    }
+  }
+
   //*Line26, wait until the DB send the response.
   if (!agendaPlayers) {
     return <div>...Loading</div>;
   }
-
+  if(!users){
+    return <div>...Loading</div>
+  }
+  // console.log(users)
   return (
     <div>
     <div className="btn-agenda">
-    <h1>Profile</h1>
+    <h1>{users.name} Profile</h1>
     </div>
     <div className="container-perfil">
-      <p>Name: Profile</p>
-      <p>Surname: Surprofile</p>
+      <p>Name: {users.name}</p>
+      <p>Surname: {users.surname}</p>
     </div>
     <h1>Agenda</h1>
       {agendaPlayers.map((eachPlayer) => {
-          {/* console.log(eachPlayer) */}
+          {/* console.log(eachPlayer.user) */}
         return (
           <div className="table" key={eachPlayer._id}>
-            <form  className="container">
-              <img width="50px" src={eachPlayer.image_path} alt="pic" />
-              <h3>{eachPlayer.display_name}</h3>
-              <label htmlFor="shooting">Shooting: </label>
-              <span id="temp">{eachPlayer.shooting}</span>
-              <Slider
-                  valueLabelDisplay="auto"
-                  step={1}
-                  min={0}
-                  max={100}
-                  disabled
-                  name="shooting"
-                  value={eachPlayer.shooting}
-              />
-              <label htmlFor="dribbling">Dribbling: </label>
-              <span id="temp">{eachPlayer.dribbling}</span>
-              <Slider
-               valueLabelDisplay="auto"
-                step={1}
-                min={0}
-                max={100}
-                disabled
-                name="dribbling"
-                value={eachPlayer.dribbling}
-                readOnly
-              />
-              <label htmlFor="running">Running: </label>
-              <span id="temp">{eachPlayer.running}</span>
-              <Slider
-                valueLabelDisplay="auto"
-                step={1}
-                min={0}
-                max={100}
-                disabled
-                name="running"
-                value={eachPlayer.running}
-                readOnly
-              />
-              <label htmlFor="ballControl">Ball Control: </label>
-              <span id="temp">{eachPlayer.ballControl}</span>
-              <Slider
-                valueLabelDisplay="auto"
-                step={1}
-                min={0}
-                max={100}
-                disabled
-                name="ballControl"
-                value={eachPlayer.ballControl}
-                readOnly
-              />
-              <NavLink className="profile-btn" to={`/countries/${eachPlayer._id}/edit`}>Edit</NavLink>
-            </form>
+            <Agenda eachPlayerProps={eachPlayer}/>
           </div>
         );
       })}
