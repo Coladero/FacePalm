@@ -17,9 +17,5 @@ const getPlayersAllService = () => {
     return service.get("/profile");
   };
 
-const getUserService = () =>{
-  return service.get(`/profile`)
-}
-
-  export{getPlayersAllService, getUserService}
+  export{getPlayersAllService}
 

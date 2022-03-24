@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import "../../css/Chat.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import { getAllMessagesServices } from '../../services/chat.services'
 import socketIo from 'socket.io-client';
@@ -55,18 +56,26 @@ function Messenger() {
   return (
     <div>Chat
 
-      {allMessages.map((eachMessage, index)=>{
+      {allMessages.map((eachMessage)=>{
         {/* console.log(eachMessage.sender.name) */}
         return(
-          <div key={eachMessage._id + index}>
-            <p>{eachMessage.sender.name}: {eachMessage.text}</p>
+          <div className="bubbleWrapper">
+          <div classNAme="inlineContainer">
+          <div  key={eachMessage._id}>
+            <p className="ownBubble own">{eachMessage.sender.name}: {eachMessage.text}</p>
+            <span className="own">{eachMessage.createdAt}</span>
+          </div>
+          </div>
           </div>
         )
       })}
-    
-      <div>
-        <input type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
-        <button onClick={sendMessage}>Send</button>
+      <div className='bottom'>
+      <form className='form'>
+      <div className='sendMess'>
+        <textarea rows="1" cols="100" type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
+        <button  onClick={sendMessage}><ion-icon name="send"></ion-icon></button>
+      </div>
+      </form>
       </div>
     </div>
 

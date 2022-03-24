@@ -1,6 +1,6 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import "./App.css";
+import "./css/App.css";
             //!Navbar & Routes//
 import Navbar from "./components/Navbar";
 import Error from "./pages/Error";
@@ -9,6 +9,9 @@ import CountriesDetails from "./pages/CountriesDetails";
 import PlayerDetail from "./pages/PlayerDetail";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/Signup";
+import Countries from "./pages/Countries";
+import AddPlayer from "./components/AddPlayer";
+import EditPlayer from "./pages/EditPlayer";
             //!Chat Routes//
 import Profile from "./pages/auth/Profile";
 import UserList from "./pages/chat/UserList";
@@ -17,9 +20,6 @@ import Messenger from "./pages/chat/Messenger"
 import { ThemeContext } from "./context/theme.context";
             //!services//
 import { checkUserService } from "./services/auth.services";
-import Countries from "./pages/Countries";
-import AddPlayer from "./components/AddPlayer";
-import EditPlayer from "./pages/EditPlayer";
 
 function App() {
   const { darkMode, setDarkMode, switchTheme } = useContext(ThemeContext);

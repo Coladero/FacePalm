@@ -1,11 +1,13 @@
 //!import//
+import { Slider } from "@mui/material";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getPlayerandAddService } from "../services/players.service";
+import "../css/Add.css"
 
 function AddPlayer(props) {
   // console.log(props.playerDetail)
-  
+
   //!Line9, useState
   const [player_id, setPlayer_id] = useState(props.playerDetail.player_id);
   const [display_name, setdDisplay_name] = useState(
@@ -58,38 +60,55 @@ function AddPlayer(props) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="form-add">
+      <form className="container-add" onSubmit={handleSubmit}>
         <label htmlFor="shooting">Shooting:</label>
-        <input
+        <Slider
+        valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
           type="text"
           name="shooting"
           value={shooting}
           onChange={handleShooting}
         />
         <label htmlFor="dribbling">Dribbling:</label>
-        <input
+        <Slider
+        valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
           type="text"
           name="dribbling"
           value={dribbling}
           onChange={handleDribbling}
         />
         <label htmlFor="running">Running:</label>
-        <input
+        <Slider
+        valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
           type="text"
           name="running"
           value={running}
           onChange={handleRunning}
         />
         <label htmlFor="ballControl">Ball control:</label>
-        <input
+        <Slider
+        valueLabelDisplay="auto"
+                step={1}
+                min={0}
+                max={100}
           type="text"
           name="ballControl"
           value={ballControl}
           onChange={handleBallControl}
         />
-
-        <button>Add to Agenda</button>
+          <div className="btn-add-player">
+        <button className="">Add to Agenda</button>
+          </div>
       </form>
     </div>
   );

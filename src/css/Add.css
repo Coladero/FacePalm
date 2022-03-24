@@ -1,0 +1,32 @@
+
+.form-add{
+    display:flex;
+    justify-content: center;
+}
+
+.container-add{
+    display:inline-block;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    max-width:300px;
+}
+
+.btn-add-player{
+    display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+
+.btn-add-player button{
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  color: tomato;
+  font-size: 30px;
+}
+
+.btn-add-player button:hover{
+  background-color: #c0c1c7;
+}

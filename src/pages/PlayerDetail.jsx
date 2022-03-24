@@ -36,12 +36,12 @@ function PlayerDetail() {
         return <div>...Loanding</div>
     }
   return (
-    <div className='Container'>
-    <div className='player'>
-        <img src={playerDetail.image_path} alt={playerDetail.common_name} />
-        <h1>{playerDetail.common_name}</h1>
-    </div>
-        <div className='player-Detail'>
+      <div className='Container-details'>
+    <div className='player-name'>
+        <img width="200px" src={playerDetail.image_path} alt={playerDetail.common_name} />
+        <h2>{playerDetail.common_name}</h2>
+        </div>   
+    <div className='player-details'>
             <p><strong>Nacionality:</strong>  {playerDetail.birthcountry}</p>
             <p><strong>Birthday place:</strong> {playerDetail.birthplace}</p>
             <p><strong>Birthday:</strong> {playerDetail.birthdate}</p>
@@ -50,8 +50,9 @@ function PlayerDetail() {
             <p><strong>Height:</strong> {playerDetail.height}</p>
             <p><strong>Weight:</strong> {playerDetail.weight}</p>
         </div>
+        <div className='tri'>
         <AddPlayer playerDetail={playerDetail}/>
-
+        </div>
     </div>
   )
 }

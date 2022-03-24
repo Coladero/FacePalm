@@ -2,7 +2,7 @@ import { Button, Slider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePlayerService, updatePlayerService } from "../services/players.service";
-
+import "../css/Edit.css"
 
 function EditPlayer() {
   
@@ -68,13 +68,12 @@ function EditPlayer() {
   };
   return (
     <div>
-      <h1>EditPlayer</h1>
+      <h1>Edit</h1>
       <form className="form-edit" onSubmit={handleSubmit}>
       <div className="container-edit">
 
         <label htmlFor="shooting">Shooting: {shooting} </label>
         <Slider
-          valueLabelDisplay="auto"
           step={1}
           min={0}
           max={100}
@@ -84,7 +83,6 @@ function EditPlayer() {
         />
         <label htmlFor="dribbling">Dribbling: {dribbling} </label>
         <Slider
-          valueLabelDisplay="auto"
           step={1}
           min={0}
           max={100}
@@ -94,7 +92,6 @@ function EditPlayer() {
         />
         <label htmlFor="running">Running: {running} </label>
         <Slider
-          valueLabelDisplay="auto"
           step={1}
           min={0}
           max={100}
@@ -104,7 +101,6 @@ function EditPlayer() {
         />
         <label htmlFor="ballControl">Ball control: {ballControl} </label>
         <Slider
-          valueLabelDisplay="auto"
           step={1}
           min={0}
           max={100}
@@ -112,11 +108,11 @@ function EditPlayer() {
           value={ballControl}
           onChange={handleBallControl}
         />
-        <div className="user-list">
-        <Button variant='text' onClick={handleDelete}>Delete</Button>
+        <div className="btn-player-edit">
+        <button>Change</button>
         </div>
-        <div className="user-list">
-        <Button variant='text'>Change</Button>
+        <div className="btn-player-edit">
+        <button onClick={handleDelete}>Delete</button>
         </div>
         </div>
       </form>

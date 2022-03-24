@@ -1,0 +1,90 @@
+.bubbleWrapper {
+	padding: 10px 10px;
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-self: flex-end;
+  color: #fff;
+}
+
+.ownBubble {
+	min-width: 60px;
+	max-width: 700px;
+	padding: 14px 18px;
+  margin: 6px 8px;
+	background-color: #5b5377;
+	border-radius: 16px 16px 0 16px;
+	border: 1px solid #443f56;
+ 
+}
+
+.own {
+	align-self: flex-end;
+}
+
+.wrapper-chat{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    font-family: "Cairo";
+  }
+
+  .marvel-device.nexus5{
+    width:90%;
+    border-radius: 10px;
+    margin:10px auto;
+    padding:10px;
+  }
+
+.form{
+  position:absolute;
+  width: 80%;
+}
+
+.sendMess{
+    border-radius:50px;
+  }
+   textarea, .sendMess button{
+    max-height:50px;
+  }
+  .sendMess button
+  {
+    border:none;
+    width:2%;
+    background-color:white;
+  }
+  .sendMess .attachment{
+   border-radius:15px 0px 0px 15px;
+   
+  }
+  .sendMess .send{
+    border-radius:0px 15px 15px 0px;
+   }
+  .sendMess textarea{
+    width:70%;
+    margin-left:-5px;
+    margin-right:-4px;
+    padding:5px;
+    border:none;
+    
+  }
+  textarea:focus,button:focus{
+    outline:none;
+  }
+  .sendMess{
+    width:90%;
+    min-height:100%;
+    margin:0 auto;
+    display:flex;
+  }
+  
+  @media  only screen and (max-width:700px){
+    .sidebar{
+      display:none;
+    }
+  }
+  @media  only screen and (max-width:700px){
+    .chat{
+      width:100%;
+    }
+  }

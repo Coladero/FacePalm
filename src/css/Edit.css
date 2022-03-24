@@ -1,0 +1,23 @@
+.form-edit{
+    display:flex;
+    justify-content: center;
+  }
+
+.btn-player-edit{
+    display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+
+.btn-player-edit button{
+  background-color: transparent;
+  text-decoration: none;
+  border: none;
+  color: tomato;
+  font-size: 30px;
+}
+
+.btn-player-edit button:hover{
+  background-color: #c0c1c7;
+}
