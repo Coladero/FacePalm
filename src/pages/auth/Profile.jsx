@@ -54,7 +54,7 @@ function Profile() {
     <h1>Agenda</h1>
       {agendaPlayers.map((eachPlayer) => {
           {/* console.log(eachPlayer.user) */}
-        return (
+        return(
           <div className="table" key={eachPlayer._id}>
             <Agenda eachPlayerProps={eachPlayer}/>
           </div>
