@@ -1,7 +1,8 @@
-import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {getAllUsersService, newChatService} from "../../services/chat.services"
+import "../../css/UserList.css"
+import { Button } from '@mui/material';
 
 function UserList() {
     //!Line8, useState
@@ -46,7 +47,7 @@ function UserList() {
         <div className='user-list' key={eachUser._id}>
         <form className='user-card'>
             <p><strong>Name: </strong>{eachUser.name}</p>
-            <Button variant='text' onClick={() => handleClick(eachUser)}>Start Chat</Button>
+            <Button onClick={() => handleClick(eachUser)}>Start Chat</Button>
         </form>
         </div>
         

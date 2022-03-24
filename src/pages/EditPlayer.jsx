@@ -1,4 +1,4 @@
-import { Button, Slider } from "@mui/material";
+import { Slider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { deletePlayerService, updatePlayerService } from "../services/players.service";

@@ -2,6 +2,10 @@
     display:flex;
     justify-content: center;
   }
+.container-edit{
+  max-width: 300px;
+}
+
 
 .btn-player-edit{
     display: flex;
@@ -14,10 +18,13 @@
   background-color: transparent;
   text-decoration: none;
   border: none;
+  cursor: pointer;
   color: tomato;
   font-size: 30px;
 }
 
 .btn-player-edit button:hover{
-  background-color: #c0c1c7;
+  background-color: #c26565;
+  color: antiquewhite;
+  transition: 1s;
 }

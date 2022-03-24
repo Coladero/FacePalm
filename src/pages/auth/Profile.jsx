@@ -92,9 +92,7 @@ function Profile() {
                 value={eachPlayer.ballControl}
                 readOnly
               />
-              <NavLink className="user-list" to={`/countries/${eachPlayer._id}/edit`}>
-                <Button variant='text'>Edit</Button>
-              </NavLink>
+              <NavLink className="profile-btn" to={`/countries/${eachPlayer._id}/edit`}>Edit</NavLink>
             </form>
           </div>
         );

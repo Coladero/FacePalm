@@ -19,7 +19,7 @@ function Messenger() {
 
   const connectToSocket = () =>{
     const storedToken = localStorage.getItem("authToken")
-    socket = socketIo.connect("http://localhost:5005", {
+    socket = socketIo.connect(process.env.REACT_APP_SERVER_URL, {
       extraHeaders: {authorization: `bearer ${storedToken}`}
     })
 
@@ -63,7 +63,6 @@ function Messenger() {
           <div classNAme="inlineContainer">
           <div  key={eachMessage._id}>
             <p className="ownBubble own">{eachMessage.sender.name}: {eachMessage.text}</p>
-            <span className="own">{eachMessage.createdAt}</span>
           </div>
           </div>
           </div>
@@ -72,7 +71,7 @@ function Messenger() {
       <div className='bottom'>
       <form className='form'>
       <div className='sendMess'>
-        <textarea rows="1" cols="100" type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
+        <textarea rows="2" cols="70" type="text" placeholder='Write message here...' name={text} onChange={handleMessage} />
         <button  onClick={sendMessage}><ion-icon name="send"></ion-icon></button>
       </div>
       </form>

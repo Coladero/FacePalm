@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getPlayerDetailsService } from '../services/api.services'
 import AddPlayer from '../components/AddPlayer'
+import "../css/Add.css"
 
 
 function PlayerDetail() {

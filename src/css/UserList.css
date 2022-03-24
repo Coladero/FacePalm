@@ -1,0 +1,27 @@
+.user-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    background-color:rgba(105, 43, 33, 0.295);
+    margin: 50px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .user-list button{
+    background-color: transparent;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  color: tomato;
+  font-size: 30px;
+}
+
+.user-list button:hover{
+  background-color: #c26565;
+  color: antiquewhite;
+  transition: 1s;
+}

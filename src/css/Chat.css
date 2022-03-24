@@ -1,10 +1,11 @@
 .bubbleWrapper {
 	padding: 10px 10px;
+  margin-left: 25%;
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: column;
 	align-self: flex-end;
-  color: #fff;
+
 }
 
 .ownBubble {
@@ -38,7 +39,8 @@
 
 .form{
   position:absolute;
-  width: 80%;
+  width: 50%;
+  margin-left: 27%;
 }
 
 .sendMess{
@@ -50,8 +52,9 @@
   .sendMess button
   {
     border:none;
-    width:2%;
+    width:4%;
     background-color:white;
+    cursor: pointer;
   }
   .sendMess .attachment{
    border-radius:15px 0px 0px 15px;
@@ -60,14 +63,6 @@
   .sendMess .send{
     border-radius:0px 15px 15px 0px;
    }
-  .sendMess textarea{
-    width:70%;
-    margin-left:-5px;
-    margin-right:-4px;
-    padding:5px;
-    border:none;
-    
-  }
   textarea:focus,button:focus{
     outline:none;
   }
