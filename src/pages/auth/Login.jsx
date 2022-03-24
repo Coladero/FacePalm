@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../../services/auth.services";
-
+import "../../css/Login.css"
 function Login(props) {
   // console.log(props)
 
@@ -39,27 +39,35 @@ function Login(props) {
     }
   };
   return (
-    <div>
+    <div id="wrapper">
+      <form className="login-form" onSubmit={handleSubmit}>
+      <div className="header">
       <h3>Login</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email: </label>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label htmlFor="password">Password: </label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button>Login</button>
-      </form>
+      <span>Fill out the form below to login.</span>
+      </div>
+        <div className="content">
+          <input
+            className="input username"
+            placeholder="Email"
+            type="text"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className="input password"
+            placeholder="Password"
+            type="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <div className="footer" >
+        <button className="button">Login</button>
+        </div>
       <p>{errorMessage}</p>
+      </form>
     </div>
   );
 }

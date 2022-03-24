@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupService } from "../../services/auth.services";
-
+import "../../css/Signup.css"
 function Signup() {
   //*Line7, useState for have the control.
   const [name, setName] = useState("");
@@ -32,39 +32,49 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div id="wrapper">
+      <form className="signup-form" onSubmit={handleSubmit}>
+      <div className="header">
       <h3>SignUp</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Fistname: </label>
+      <span>Fill out the form below to signup</span>
+      </div>
+      <div className="content">
         <input
+          className="input username"
+          placeholder="Firstname"
           type="text"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-        <label htmlFor="surname">Lastname: </label>
         <input
+          className="input username"
+          placeholder="Lastname"
           type="text"
           name="surname"
           value={surname}
           onChange={(e) => setSurname(e.target.value)}
         />
-        <label htmlFor="email">Email: </label>
         <input
+          className="input username"
+          placeholder="Email"
           type="text"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label htmlFor="password">Password: </label>
         <input
+          className="input username"
+          placeholder="Password"
           type="password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button>Submit</button>
+        </div>
+        <div className="footer">
+        <button className="button">Submit</button>
+        </div>
       </form>
 
       <p>{errorMessage}</p>
