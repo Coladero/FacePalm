@@ -47,7 +47,8 @@ function Messenger() {
     setText(e.target.value)
   }
 
-  const sendMessage = () =>{
+  const sendMessage = (e) =>{
+    e.preventDefault()
     console.log("Sending message")
     const messageObject = {text, chatId}
     socket.emit("send_message", messageObject)
