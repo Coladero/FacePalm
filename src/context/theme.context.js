@@ -4,7 +4,7 @@ const ThemeContext = createContext();
 
 function ThemeWrapper(props) {
 
-  const [ darkMode, setDarkMode ] = useState(true)
+  const [ darkMode, setDarkMode ] = useState(false)
 
   const darkTheme = {
     minHeight:"100vh",
@@ -22,17 +22,11 @@ function ThemeWrapper(props) {
     return darkMode ? darkTheme : lightTheme
   }
 
-  const switchBtnTheme = () => {
-    return darkMode ? { backgroundColor: "red" } : { backgroundColor: "green" }
-  }
-
-
   // creamos el obj con todo el contexto
   const passedContext = {
     darkMode,
     setDarkMode,
     switchTheme,
-    switchBtnTheme
   }
 
 

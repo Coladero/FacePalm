@@ -1,0 +1,119 @@
+.toggle{
+    position: relative;
+    height: 50px;
+    width: 100px;
+    border-radius: 50px;
+    margin: auto;
+    background-image: linear-gradient(aqua, skyblue);
+    cursor: pointer;
+}
+
+.toggle.night{
+    background-image: linear-gradient(midnightblue, rebeccapurple);
+}
+/***************DAY MODE*******************/
+
+.notch{
+    margin: auto;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background:yellow;
+    box-shadow: 0 0 5px yellow;
+    position: absolute;
+    top: 5px;
+    left:5px;
+    z-index: 1;
+    transition: all 0.5s;
+}
+
+.shape{
+    position: absolute;
+    background: whitesmoke;
+    border-radius: 50%;
+    transition: all 0.4s;
+}
+
+.shape.sm{
+    height: 3px;
+    width: 20px;
+    top: 45%;
+    left: 70%;
+}
+
+.shape.md{
+    height: 5px;
+    width: 40px;
+    top: 25%;
+    left: 25%;
+    z-index: 2;
+}
+
+.shape.lg{
+    height: 7px;
+    width: 55px;
+    bottom: 20%;
+    left: 25%;
+}
+
+/***************NIGHT MODE*******************/
+
+.notch > .crater{
+    background-color: burlywood;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4) inset;
+}
+
+.night .crater{
+    opacity: 0.3 ;
+}
+
+.crater:first-child{
+    left: 5px;
+    top: 10px;
+    height: 7px;
+    width: 15px;
+    transform: rotate(-45deg);
+}
+
+.crater:last-child{
+    right: 3px;
+    top: 13px;
+    height: 4px;
+    width: 10px;
+    transform: rotate(45deg);
+}
+.night > .notch{
+    background:whitesmoke;
+    box-shadow: 0 0 5px whitesmoke;
+    transform: translateX(50px);
+}
+
+.night .shape{
+    background: lightyellow;
+    box-shadow: 0 0 10px(violet);
+}
+
+.night .shape.sm{
+    height: 3px;
+    width: 3px;
+    transform: translateX(-30px);
+}
+
+.night .shape.sm:first-of-type{
+    transform: translate(-50px, -5px);
+}
+
+.night .shape.md{
+    height: 6px;
+    width: 6px;
+    transform: translateX(7px);
+}
+
+.night .shape.lg{
+    height: 10px;
+    width: 10px;
+    transform: translateX(-5px);
+}

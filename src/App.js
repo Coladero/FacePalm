@@ -1,7 +1,8 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import "./css/App.css";
-            //!Navbar & Routes//
+//!Navbar & Routes//
+import Toogle from "./components/Toggle"
 import Navbar from "./components/Navbar";
 import Error from "./pages/Error";
 import Home from "./pages/Home";
@@ -24,6 +25,7 @@ import { checkUserService } from "./services/auth.services";
 function App() {
   const { darkMode, setDarkMode, switchTheme } = useContext(ThemeContext);
   const [ isLogin, setIsLogin ] = useState(false)
+  const [toggled, setToggled] = useState(false)
   const navigate = useNavigate()
 
   useEffect(()=>{
@@ -41,9 +43,13 @@ function App() {
       navigate("/login")
     }
   }
+
+  const handleClick = () =>{
+    setToggled((s) => !s)
+  }
   return (
     <div className="App" style={switchTheme()}>
-      <button onClick={() => setDarkMode(!darkMode)}>Theme</button>
+      <div  onClick={() => setDarkMode(!darkMode)}><Toogle toggled={toggled} onClick={handleClick}/></div>
       <Navbar isLogin={isLogin} setIsLogin={setIsLogin}/>
       <Routes>
               //!Navegations Routes//

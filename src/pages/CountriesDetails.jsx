@@ -35,7 +35,7 @@ function CountriesDetails(props) {
   //*5Line37, now we can make the player's search and show the result.
   const searchPlayers = (searchQuery) => {
     const filterPlayer = detailLeague.filter((eachPlayer) => {
-      return eachPlayer.fullname.startsWith(searchQuery);
+      return eachPlayer.fullname.toLowerCase().startsWith(searchQuery);
     });
     setDetailLeague(filterPlayer);
   };
