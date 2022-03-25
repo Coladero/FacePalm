@@ -19,8 +19,8 @@ function Messenger() {
 
   const connectToSocket = () =>{
     const storedToken = localStorage.getItem("authToken")
-    socket = socketIo.connect(process.env.REACT_APP_SERVER_URL, {
-      extraHeaders: {authorization: `bearer ${storedToken}`}
+    socket = socketIo.connect(process.env.REACT_APP_SOCKET_URL, {
+      extraHeaders: {Authorization: `bearer ${storedToken}`}
     })
 
     socket.emit("join_chat", chatId)
