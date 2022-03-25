@@ -1,70 +1,125 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FacePalm
 
-## Available Scripts
 
-In the project directory, you can run:
+# Description
+APP Web for football scouts to connect with other scouts from all over the world and to share experience for the newer scouts and to give motivation and enthusiasm to the more experienced ones.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* GET /
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Render HOME page.
 
-### `npm test`
+# Front-end Services
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* -Auth Services-
 
-### `npm run build`
+* SignupService 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - GET /auth/signup.
+    - Render to /signup.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* LoginService
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   -GET /auth/login
+   -Render to login and show the form.
 
-### `npm run eject`
+* CheckUserService
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    -Check if the User has the token.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* -API Services-
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+* GetAllCountriesService
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    -GET /api/countries.
+    -Render all countries to the user.
 
-## Learn More
+* GetAllPlayersService
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    -GET /api/countries/:id/players
+    -Render All the players from the country.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* GetPlayerDetailsService
 
-### Code Splitting
+    -Get /countries/:id/players/details.
+    -Render player details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* -Players Service-
 
-### Analyzing the Bundle Size
+* GetPlayerandAddService
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    -POST /players/add/:id.
+    -Send the form with the details.
 
-### Making a Progressive Web App
+* UpdatePlayerService
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    -PATCH /player/:id/edit.
+    -Edit the new params and send to the back-end.
 
-### Advanced Configuration
+* DeletePlayerService
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    -DELETE /player/:id/delete.
+    -Send the info to the back-end to delete the details.
 
-### Deployment
+* -Chat Services-
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* GetAllUsersService
 
-### `npm run build` fails to minify
+    -GET /users.
+    -Show the users to the user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* newChatService
+
+    -POST /messenger/:userId.
+    -Get the id from both users and send the chat to the back-end.
+
+* GetAllMessagesServices
+
+    -GET /messages/:chatId.
+    -Send the messages from the users to the back-end.
+
+# PAGES
+
+- Countries
+- CountriesDetails
+- EditPlayer
+- Error
+- Home
+- PlayerDetail
+
+* Auth
+
+- Login
+- Profile
+-Signup
+
+* Chat
+
+- UserList
+- Messenger
+
+# Components
+
+- AddPlayer
+- Agenda
+- Country
+- Navbar
+- SearchCountries
+- SearchPlayers
+- Toggle
+
+# Context
+
+- Theme.Context
+
+# CSS
+
+- APP
+- ADD
+- CHAT
+- EDIT
+- LOGIN
+- SIGNUP
+- TOGGLE
+- USERLIST
