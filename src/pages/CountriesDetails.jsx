@@ -7,7 +7,6 @@ function CountriesDetails(props) {
   //*1.Line7, create the state for Players.
   const [detailLeague, setDetailLeague] = useState(null);
   const { id } = useParams();
-  // console.log(id)
 
   const navigate = useNavigate();
   //*2.Line11, create the useEffect.
@@ -18,7 +17,6 @@ function CountriesDetails(props) {
   const getDetailLeague = async () => {
     try {
       const getResponse = await getAllPlayersService(id);
-      // console.log("Adios",getResponse.data.data)
       setDetailLeague(getResponse.data.data);
     } catch (err) {
       if (err.getResponse) {
@@ -46,9 +44,6 @@ function CountriesDetails(props) {
         <SearchPlayer searchPlayers={searchPlayers} />
         {/* //*Line39, render eachPlayer to the user */}
         {detailLeague.map((eachPlayer) => {
-          {
-            /* console.log(eachPlayer) */
-          }
           return (
             <div className="container2" key={eachPlayer.player_id}>
               <div className="container-player">

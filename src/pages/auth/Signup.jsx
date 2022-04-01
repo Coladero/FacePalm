@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { signupService } from "../../services/auth.services";
 import "../../css/Signup.css"
 function Signup() {
-  //*Line7, useState for have the control.
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
@@ -11,18 +10,14 @@ function Signup() {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  //*1.Line15, handle to control the form.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const user = { name, surname, email, password };
-    //*2.Line20, Create the User in the DB.
     try {
       await signupService(user);
       navigate("/login");
     } catch (err) {
-      // console.log(err.response.data.errorMessage);
-      //*3.Line25, check evething is ok if not render error page
       if (err?.response?.status === 400) {
         setErrorMessage(err.response.data.errorMessage);
       } else {

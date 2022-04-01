@@ -17,7 +17,6 @@ function Countries() {
   const getAllLegues = async () => {
     try {
       const getResponse = await getAllCountriesService("/countries");
-      //    console.log(getResponse.data.data)
       setAllCountries(getResponse.data.data);
     } catch (err) {
       if (err) {

@@ -8,7 +8,6 @@ import "../css/Add.css"
 function PlayerDetail() {
     const [playerDetail, setPlayerDetail] = useState(null)
     const {id} = useParams()
-    // console.log(id)
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -18,7 +17,6 @@ function PlayerDetail() {
     const getPlayerDetail = async () =>{ 
         try{
         const getResponse = await getPlayerDetailsService(id)
-        // console.log(getResponse.data.data)
             setPlayerDetail(getResponse.data.data)
         }catch(err){
             if(err.getResponse){

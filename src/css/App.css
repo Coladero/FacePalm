@@ -188,4 +188,5 @@ h1{
 .container-search {
   display: flex;
   justify-content: center;
+  color: gray;
 }

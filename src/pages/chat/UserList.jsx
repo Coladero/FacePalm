@@ -26,7 +26,6 @@ function UserList() {
     };
 
     const handleClick = async (user) =>{
-        console.log(`try to get a chat with ${user.name}`)
         try{
             const response = await newChatService(user._id)
             navigate(`/messenger/${response.data._id}`)

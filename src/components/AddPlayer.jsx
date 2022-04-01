@@ -6,9 +6,7 @@ import { getPlayerandAddService } from "../services/players.service";
 import "../css/Add.css"
 
 function AddPlayer(props) {
-  // console.log(props.playerDetail)
 
-  //!Line9, useState
   const [player_id, setPlayer_id] = useState(props.playerDetail.player_id);
   const [display_name, setdDisplay_name] = useState(
     props.playerDetail.display_name
@@ -19,20 +17,15 @@ function AddPlayer(props) {
   const [running, setRunning] = useState();
   const [ballControl, setBallControl] = useState();
 
-  //!Line18, useParams
   const { id } = useParams();
-  // console.log(Id)
 
-  //!Line22, useNavigate
   const navigate = useNavigate();
 
-  //*Line25, Here is the handle for the input to make sure everything is undercontrol.
   const handleShooting = (e) => setShooting(e.target.value);
   const handleDribbling = (e) => setDribbling(e.target.value);
   const handleRunning = (e) => setRunning(e.target.value);
   const handleBallControl = (e) => setBallControl(e.target.value);
 
-  //*Line31, handle for submit the player with the details the user want.
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -46,9 +39,8 @@ function AddPlayer(props) {
         running,
         ballControl,
       };
-      console.log(newPlayer);
+      
       const response = await getPlayerandAddService(newPlayer, id);
-      // console.log("hola",response)
       setShooting("");
       setDribbling("");
       setRunning("");

@@ -6,33 +6,26 @@ import "../css/Edit.css"
 
 function EditPlayer() {
   
-  //*Line10, useState
   const [shooting, setShooting] = useState("");
   const [dribbling, setDribbling] = useState("");
   const [running, setRunning] = useState("");
   const [ballControl, setBallControl] = useState("");
-  //*Line15, useParams
   const { id } = useParams();
 
-  //*19, useNavigate
   const navigate = useNavigate();
 
-  //*Line22, handles
   const handleShooting = (e) => setShooting(e.target.value);
   const handleDribbling = (e) => setDribbling(e.target.value);
   const handleRunning = (e) => setRunning(e.target.value);
   const handleBallControl = (e) => setBallControl(e.target.value);
 
-  //*Line28, useEffect
   useEffect((e) => {
     getAndUpdatePlayer();
   }, []);
 
-  //*Line33, get details and create a new player with the details from user.
   const getAndUpdatePlayer = async () => {
     try {
       const response = await updatePlayerService(id);
-      // console.log("hola", response.data)
       setShooting(response.data.shooting);
       setDribbling(response.data.dribbling);
       setRunning(response.data.running);
@@ -42,7 +35,6 @@ function EditPlayer() {
     }
   };
 
-  //*Line47, handle check everything is ok and create in the DB
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

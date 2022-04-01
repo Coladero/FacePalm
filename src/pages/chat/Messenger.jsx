@@ -49,7 +49,6 @@ function Messenger() {
 
   const sendMessage = (e) =>{
     e.preventDefault()
-    console.log("Sending message")
     const messageObject = {text, chatId}
     socket.emit("send_message", messageObject)
     setText("")
@@ -58,7 +57,6 @@ function Messenger() {
     <div>Chat
 
       {allMessages.map((eachMessage)=>{
-        {/* console.log(eachMessage.sender.name) */}
         return(
           <div className="bubbleWrapper">
           <div classNAme="inlineContainer">

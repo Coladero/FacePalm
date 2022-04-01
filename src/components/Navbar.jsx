@@ -1,13 +1,9 @@
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Navbar(props) {
-  // console.log(props)
 
-  //!Line7,props
   const { isLogin, setIsLogin } = props;
-  //!Line9, useNavigate
   const navigate = useNavigate();
-  //!Line11, handle logOut the user.
   const handleGetOut = () => {
     setIsLogin(false);
     localStorage.removeItem("authToken");

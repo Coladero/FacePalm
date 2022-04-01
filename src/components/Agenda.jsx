@@ -3,8 +3,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 function Agenda(props) {
-    // console.log(props)
-    const { _id, image_path, display_name, shooting, dribbling, running, ballControl } = props.eachPlayerProps
+
+  const { _id, image_path, display_name, shooting, dribbling, running, ballControl } = props.eachPlayerProps
   return (
     <div>
         <form  className="container">
