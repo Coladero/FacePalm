@@ -6,7 +6,7 @@ import logo from "../images/logo_large.png"
 function Home() {
   return (
     <div className='logo'>
-      <img width="1000px" src={logo} alt="pic" />
+      <img src={logo} alt="pic" />
     </div>
   )
 }

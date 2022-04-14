@@ -4,9 +4,9 @@ function SearchCountries(props) {
   
   const [search, setSearch] = useState();
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-    props.searchCountries(e.target.value);
+  const handleChange = (event) => {
+    setSearch(event.target.value);
+    props.searchCountries(event.target.value);
   };
   return (
     <div className="container-search">

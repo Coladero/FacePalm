@@ -6,6 +6,7 @@ import { getAllPlayersService } from "../services/api.services";
 function CountriesDetails(props) {
   //*1.Line7, create the state for Players.
   const [detailLeague, setDetailLeague] = useState(null);
+  const [detailLeagueToRender, setDetailLeagueToRender] = useState(null);
   const { id } = useParams();
 
   const navigate = useNavigate();
@@ -17,7 +18,8 @@ function CountriesDetails(props) {
   const getDetailLeague = async () => {
     try {
       const getResponse = await getAllPlayersService(id);
-      setDetailLeague(getResponse.data.data);
+      setDetailLeagueToRender(getResponse.data.data);
+      setDetailLeague(getResponse.data.data)
     } catch (err) {
       if (err.getResponse) {
         navigate("/login");
@@ -27,15 +29,15 @@ function CountriesDetails(props) {
     }
   };
   //*4Line31, make the loanding to make sure get the info and render.
-  if (!detailLeague) {
+  if (!detailLeagueToRender || !detailLeague) {
     return <div>...Loading</div>;
   }
   //*5Line37, now we can make the player's search and show the result.
   const searchPlayers = (searchQuery) => {
-    const filterPlayer = detailLeague.filter((eachPlayer) => {
-      return eachPlayer.fullname.toLowerCase().startsWith(searchQuery);
+    const filteredPlayer = detailLeague.filter((eachPlayer) => {
+      return eachPlayer.fullname.toLowerCase().includes(searchQuery);
     });
-    setDetailLeague(filterPlayer);
+    setDetailLeagueToRender(filteredPlayer);
   };
   return (
     <div>
@@ -43,17 +45,15 @@ function CountriesDetails(props) {
       <div>
         <SearchPlayer searchPlayers={searchPlayers} />
         {/* //*Line39, render eachPlayer to the user */}
-        {detailLeague.map((eachPlayer) => {
+        {detailLeagueToRender.map((eachPlayer) => {
           return (
             <div className="container2" key={eachPlayer.player_id}>
               <div className="container-player">
-                <button className="btn-players">
                   <NavLink
                     to={`/countries/${eachPlayer.player_id}/players/details`}
                   >
-                    <img src={eachPlayer.image_path} alt="Player" />
+                    <img className="img" margin="2%" width="50px" height="50px" src={eachPlayer.image_path} alt={eachPlayer.fullname} />
                   </NavLink>
-                </button>
               </div>
               <div>
                 <p className="link">{eachPlayer.fullname}</p>

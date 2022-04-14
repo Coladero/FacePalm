@@ -93,7 +93,7 @@
 
 .night .shape{
     background: lightyellow;
-    box-shadow: 0 0 10px(violet);
+    box-shadow: 0 0 10px rgba(239, 88, 241, 0.863);
 }
 
 .night .shape.sm{

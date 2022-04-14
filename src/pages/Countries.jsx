@@ -6,7 +6,8 @@ import { getAllCountriesService } from "../services/api.services";
 
 function Countries() {
   //*1.Line8, create the state for allCountries.
-  const [allLeagues, setAllCountries] = useState(null);
+  const [allLeagues, setAllCountries] = useState([])
+  const [allLeaguestoRender, setAllCountriesToRender] = useState([]);
   const navigate = useNavigate();
 
   //*2.Line12, create the useEffect.
@@ -17,7 +18,8 @@ function Countries() {
   const getAllLegues = async () => {
     try {
       const getResponse = await getAllCountriesService("/countries");
-      setAllCountries(getResponse.data.data);
+      setAllCountriesToRender(getResponse.data.data);
+      setAllCountries(getResponse.data.data)
     } catch (err) {
       if (err) {
         navigate("/login");
@@ -28,22 +30,25 @@ function Countries() {
   };
 
   //*4Line31, make the loanding to make sure get the info and render.
-  if (!allLeagues) {
+  if (!allLeaguestoRender ||!allLeagues) {
     return <div>...Loading</div>;
   }
-
   const searchCountries = (searchQuery) => {
-    const filterPlayer = allLeagues.filter((eachPlayer) => {
-      return eachPlayer.name.toLowerCase().startsWith(searchQuery);
+    console.log(searchQuery)  
+    const filterCountry = allLeagues.filter((eachCountries) => {
+      return eachCountries.name.toLowerCase().includes(searchQuery);
     });
-    setAllCountries(filterPlayer);
+    setAllCountriesToRender(filterCountry);
+    
   };
+
   return (
     <div>
       <p className="text">Countries</p>
       <SearchCountries searchCountries={searchCountries} />
       {/* //*render eachCountry to the user */}
-      {allLeagues.map((eachCountry, index) => {
+      {allLeaguestoRender.map((eachCountry, index) => {
+        console.log(eachCountry)
         return (
           <div className="container-Countries" key={eachCountry.name + index}>
           <Country  eachCountryProps={eachCountry}/>
